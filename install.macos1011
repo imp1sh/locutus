@@ -1,0 +1,15 @@
+#!/bin/bash
+temppath="/tmp"
+destination="/usr/local/bin"
+appdownload="borg-macosx64"
+appname="borg"
+# install dependencies
+
+cd $temppath
+if [ -f $appdownload ]; then
+	rm -f $appdownload
+fi
+curl -L https://github.com/borgbackup/borg/releases/download/1.0.6/$appdownload > $appdownload
+
+sudo mv "$temppath/$appdownload" "$destination/$appname"
+sudo chmod +x "$destination/$appname"
