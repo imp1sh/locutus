@@ -1,0 +1,15 @@
+#!/bin/csh
+setenv temppath "/tmp"
+setenv destination "/usr/local/sbin"
+setenv appdownload "borg-freebsd64"
+setenv appname "borg"
+# install dependencies
+sudo pkg install -y python3 openssl liblz4 fusefs-libs pkgconf git
+sudo python3.4 -m ensurepip
+
+cd $temppath
+fetch https://github.com/borgbackup/borg/releases/download/1.0.6/borg-freebsd64
+#fetch https://github.com/borgbackup/borg/releases/download/1.0.6/borg-freebsd64.asc
+
+sudo mv "$temppath/$appdownload" "$destination/$appname"
+sudo chmod o+x "$destination/$appname"
