@@ -1,6 +1,6 @@
 #!/bin/csh
 setenv temppath "/tmp"
-setenv destination "/usr/local/sbin"
+setenv destination "/usr/local/bin"
 setenv appdownload "borg-freebsd64"
 setenv appname "borg"
 # install dependencies
@@ -12,4 +12,4 @@ fetch https://github.com/borgbackup/borg/releases/download/1.0.6/borg-freebsd64
 #fetch https://github.com/borgbackup/borg/releases/download/1.0.6/borg-freebsd64.asc
 
 sudo mv "$temppath/$appdownload" "$destination/$appname"
-sudo chmod o+x "$destination/$appname"
+sudo chmod x "$destination/$appname"
